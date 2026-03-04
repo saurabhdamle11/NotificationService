@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/notification}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      minimum-idle: ${DB_POOL_MIN_IDLE:2}
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:none}
+    show-sql: ${JPA_SHOW_SQL:false}
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: never
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: ${KAFKA_CONSUMER_GROUP:notification-group}
+
+notification:
+  sharding:
+    batch-size: ${NOTIFICATION_BATCH_SIZE:10000}
+  kafka:
+    topic: ${KAFKA_NOTIFICATION_TOPIC:notification-shards}
+    partitions: ${KAFKA_TOPIC_PARTITIONS:10}
+    replicas: ${KAFKA_TOPIC_REPLICAS:1}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+logging:
+  level:
+    com.saurabh.notification: ${LOG_LEVEL:INFO}
+    org.springframework.kafka: WARN

@@ -1,0 +1,48 @@
+# ── Maven build output ───────────────────────────────────────────────
+notification/target/
+notification/.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ── Credentials / secrets ────────────────────────────────────────────
+.env
+
+# ── IDE — IntelliJ IDEA ──────────────────────────────────────────────
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ── IDE — VS Code ────────────────────────────────────────────────────
+.vscode/
+
+# ── IDE — Spring Tool Suite ──────────────────────────────────────────
+notification/.apt_generated
+notification/.classpath
+notification/.factorypath
+notification/.project
+notification/.settings
+notification/.springBeans
+notification/.sts4-cache
+
+# ── IDE — NetBeans ───────────────────────────────────────────────────
+notification/nbproject/private/
+notification/nbbuild/
+notification/dist/
+notification/nbdist/
+notification/.nb-gradle/
+notification/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ── Docker ───────────────────────────────────────────────────────────
+docker/data/
+
+# ── OS ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Claude ───────────────────────────────────────────────────────────────
+CLAUDE.md
+HOW_IT_WORKS.md
+RUNNING_AND_TESTING.md
